@@ -1,14 +1,12 @@
-import * as Bokeh from '@bokeh/bokehjs'
-
-const plt = Bokeh.Plotting
-const np = Bokeh.LinAlg
+import { figure, show } from "@bokeh/bokehjs/build/js/lib/api/plotting"
+import { linspace } from "@bokeh/bokehjs/build/js/lib/api/linalg"
 
 const n = 100;
-const x = np.linspace(0, 20, n);
+const x = linspace(0, 20, n);
 const y = x.map(x => Math.sin(x));
 
-const p = plt.figure({ height: 300 });
+const p = figure({ height: 300, output_backend: 'webgl' });
 
 p.line(x, y);
 
-plt.show(p, "#root");
+show(p, "#root");
